@@ -1,0 +1,88 @@
+﻿@{
+	ViewData["Title"] = "Check any XIM address";
+}
+<h2>@ViewData["Title"]
+	<a id="bookmark-this" title="Bookmark This XIM Address Page" style="float: right; margin-top: 14px;">Bookmark this XIM Address for easy checking</a></h2>
+<h3>@ViewData["Message"]</h3>
+
+<script>
+	jQuery(function ($) {
+		$("#bookmark-this").click(function (e) {
+			var bookmarkURL = window.location.href;
+			var bookmarkTitle = document.title;
+			// ReSharper disable UseOfImplicitGlobalInFunctionScope
+			if ("addToHomescreen" in window && addToHomescreen.isCompatible) {
+				// Mobile browsers
+				addToHomescreen({ autostart: false, startDelay: 0 }).show(true);
+			} else if (window.sidebar && window.sidebar.addPanel) {
+				// Firefox <=22
+				window.sidebar.addPanel(bookmarkTitle, bookmarkURL, "");
+			} else if (window.sidebar && /Firefox/i.test(navigator.userAgent) ||
+				window.opera && window.print) {
+				// Firefox 23+ and Opera <=14
+				$(this).attr({
+					href: bookmarkURL,
+					title: bookmarkTitle,
+					rel: "sidebar"
+				}).off(e);
+				return true;
+			} else if (window.external && "AddFavorite" in window.external) {
+				// IE Favorites
+				window.external.AddFavorite(bookmarkURL, bookmarkTitle);
+			} else {
+				// Other browsers (mainly WebKit & Blink - Safari, Chrome, Opera 15+)
+				alert("Press " + (/Mac/i.test(navigator.userAgent) ? "Cmd" : "Ctrl") + "+D to bookmark this page.");
+			}
+			return false;
+		});
+	});
+	function checkAddressOnEnter(event) {
+		if (event.keyCode === 13)
+            window.open("https://chainz.cryptoid.info/xim/address.dws?" + $("#address").val(), "_blank");
+	}
+	function updateAddressLinks() {
+		var address = $("#address").val();
+		window.history.pushState('Address', 'XIM Address '+address, '/Address?'+address);
+        $("#link3").attr("href", "https://chainz.cryptoid.info/xim/address.dws?" + address);
+	}
+	function copyToClipboard(element) {
+		var $temp = $("<input>");
+		$("body").append($temp);
+		$temp.val($(element).text()).select();
+		document.execCommand("copy");
+		$temp.remove();
+		if (element === "DCT5GRhHq5t1DWZSrMBEGBZULRhCREB1s9")
+			$("#address").val(element);
+	}
+</script>
+
+<article class="text-left ng-hide" ng-show="showGetAddress">
+	<div class="clearfix collapse-container">
+		<div ng-click="wd = !wd">
+			<p>Your Address can also be known as you <code>Account #</code> or your <code>Public Key</code>. It is what you share with people so they can send you XIM. Since the XIM blockchain is public and open, you can check any address (yours or any other) via the <code>Public Key</code>.</p>
+		</div>
+
+		Unlike <a href="/">Unlock Wallet</a> you won't need to access your hardware wallet or stored private key here. As long as you know your (or any other) address, you can always check whats going on via <a href="//chainz.cryptoid.info/ximblock">chainz.cryptoid.info/ximblock</a>. If your unlocked your wallet before your last used wallet address is shown here automatically, but you can enter any other address just as well.<br />
+		<br />
+		Enter Wallet Address to check; it looks like this: <span style="font-style: italic">DCT5GRhHq5t1DWZSrMBEGBZULRhCREB1s9</span>
+		<input id="address" name="address" class="form-control is-invalid" placeholder="XIM Wallet address to check" aria-label="Enter a XIM address" oninput="updateAddressLinks()" onkeyup="checkAddressOnEnter(event)">
+		<ul class="account-info">
+			<li>
+				<a id="link3" href="https://chainz.cryptoid.info/xim/address.dws?XMSKdPL8HaKn7eeC5qvYKxL4BkwrwNYyMB" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+					Use CryptoId.info
+				</a>
+			</li>
+		</ul>
+		<script>
+			var urlAddress = window.location.search;
+			if (urlAddress && urlAddress.length >= 35)
+				$("#address").val(urlAddress.substr(1));
+			else {
+				var storedAddress = localStorage.getItem('address');
+				if (storedAddress)
+					$("#address").val(storedAddress);
+			}
+			updateAddressLinks();
+		</script>
+	</div>
+</article>

@@ -1,0 +1,20 @@
+﻿@{
+	ViewData["Title"] = "Check any transaction";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+<script>
+	function checkTx(txId) {
+		location.href = "https://chainz.cryptoid.info/xim/tx.dws?" + txId;
+	}
+</script>
+
+Enter Transaction Id to check (if you received or send any XIM, each action shows up as a transaction in your wallet):
+<input id="tx" name="tx" class="form-control ng-pristine ng-valid ng-empty is-invalid ng-touched" placeholder="Transaction Id you got when sending or receiving XIM" aria-label="Enter a tx id" onchange="checkTx(this.value)">
+<ul class="account-info">
+	<li ng-show="ajaxReq.type != 'CUS'" class="">
+		<a href="https://chainz.cryptoid.info/xim/tx.dws?0b101c63420476040b815611e33843a57885f72730b030465493fb13b5b54878" target="_blank" rel="noopener noreferrer" class="btn btn-primary ng-scope">
+			Use CryptoId.info
+		</a>
+	</li>
+</ul>

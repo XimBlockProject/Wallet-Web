@@ -1,0 +1,8 @@
+get npm
+add browserify: npm install -g browserify
+add uglify: npm install -g uglify-js
+
+npm install
+browserify ximblock.input.js | uglifyjs > ..\wwwroot\ximblock.js
+
+or just double click the generate-ximblock.js.cmd file once everything is setup.

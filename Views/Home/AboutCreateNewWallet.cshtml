@@ -1,0 +1,70 @@
+﻿@{
+  ViewData["Title"] = "How to Create a Wallet via Keystore file";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+
+<article class="block block__content clearfix" itemscope="" itemtype="http://schema.org/Article">
+	<div class="content">
+		<a asp-area="" asp-controller="Home" asp-action="About">New here? Then first check the Getting Started Guide</a>
+		<h3 id="how-to">How To</h3>
+		<ul>
+			<li>Go to <a href="https://MyXimBlockWallet.org" target="_blank">https://MyXimBlockWallet.org</a>.</li>
+			<li>Click the <code>"Create Keystore Wallet"</code> button.</li>
+			<li>
+				Enter a strong but easy to remember password. Do not forget it.<ul>
+					<li><em>This encrypts (protects) your private key. It does not generate your private key. This password alone will <strong>not</strong> be enough to access your XIM.</em></li>
+				</ul>
+			</li>
+			<li>
+				Download your <code>Keystore file</code> &amp; save this file to a USB drive.<ul>
+					<li><em>This is the encrypted version of your private key. You need the password to access it. It is safer than your unencrypted private key but you must have your password to access it in the future.</em></li>
+				</ul>
+			</li>
+			<li>
+				Once unlocked, print your paper wallet backup and/or <em>carefully</em> hand-write the <code>private key</code> on a piece of paper.<ul>
+					<li><em>If you are writing it, it is recommend you write it 2 or 3 times. This decreases the chance your messy handwriting will prevent you from accessing your wallet later.</em></li>
+				</ul>
+			</li>
+			<li>Send a small amount of XIM (10 XIM) from your previous wallet or exchange to your new wallet. You should not use big amounts without having a hardware wallet, it is recommended to only keep small amounts in your wallet like you would in real life (or do you walk around with thousands in your pocket?)</li>
+			<li>
+				Unlock your new wallet from the Keystore file on your USB drive or via the private key that you printed out.  Ensure it unlocks the wallet you are sent to and matches the bookmark you have.<ul>
+					<li><em>Do not simply leave your new wallet open. Pretend you are coming back a year later to access your riches. Can you do it?</em></li>
+				</ul>
+			</li>
+			<li>
+				Send a super small amount of XIM (0.00001 XIM) from this new wallet to another address.<ul>
+					<li><em>Perhaps to our donation address: <a title="Click to send XIM to this address" href="ximblock:DCT5GRhHq5t1DWZSrMBEGBZULRhCREB1s9" target="_blank" rel="noopener noreferrer">DCT5GRhHq5t1DWZSrMBEGBZULRhCREB1s9</a>? We are a free, open-source service. There are no fees, no ads, no tracking, no cookies, no selling your data (as we have none, everything runs locally on your PC except when sending XIM into the blockchain).</em></li>
+				</ul>
+			</li>
+			<li>Ensure you have recorded all necessary bits of information and the addresses match at all times. If they don't, you mis-wrote something somewhere. That means it's time to start from the beginning in order to make sure you never lose access to your funds.</li>
+		</ul>
+		<p>Doing all of this is tedious, but it ensures you (1) have complete access to your funds (2) the address you sent to is correct and matches the private key you have saved and (3) you can rest easily for years to come, knowing you will be able to access your XIM later.</p>
+		<h3 id="safe-storage-of-backups">Safe Storage of Backups</h3>
+		<p>It is recommended that you store backups of both forms of your key (the Keystore / UTC file version and paper wallet version) in physically separate, offline environments.</p>
+		<p>This prevents loss of the private key &amp; password due to: dead hard drive, lost USB drive, wet piece of paper, etc. Keep in mind that physical loss can affect an entire area (e.g. fire, flood).</p>
+		<h3 id="we-cannot-recover-your-key">We cannot recover your key</h3>
+		<p>MyXimBlockWallet is not a web wallet (except for the tipping or other online parts, any funds in transit will either arrive at the target or be send back to you, they don't stay in the online pot) and cannot recover your private key or password, access your account, move funds, recover funds, nor cancel/reverse transactions in the blockchain.</p>
+		<p>We are a client-side interface that allows you to interact with the XIM blockchain. Please secure &amp; back up your key like the many dollars it could some day be worth.</p>
+		<h3 id="related-reading">Related Reading</h3>
+		<ul>
+			<li>
+				<p><a href="https://myetherwallet.github.io/knowledge-base/private-keys-passwords/difference-beween-private-key-and-keystore-file.html">What is the difference between private key &amp; Keystore / UTC file?</a></p>
+			</li>
+			<li>
+				<p><a href="https://myetherwallet.github.io/knowledge-base/security/securing-your-ethereum.html">Protecting yourself and your funds</a></p>
+			</li>
+		</ul>
+		<h3 id="short-version-advanced-users-only-">Short Version (Advanced Users Only)</h3>
+		<ol>
+			<li>Go to <a href="https://MyXimBlockWallet.org/">https://MyXimBlockWallet.org</a>.</li>
+			<li>Click the <code>"Create Keystore Wallet"</code> button.</li>
+			<li>Enter a strong but easy to remember password.</li>
+			<li>Click the <code>"Download"</code> button &amp; save your <code>Keystore</code> file. Back it up.</li>
+			<li>Unlock your keystore wallet with your password</li>
+			<li>When unlocked you have the option of printing a paper wallet, saving your private key, or saving a QR code of your private key. Back up at least one (offline).</li>
+			<li>Save your address to a text document &amp; bookmark the link <a href="/Address">on the address site</a> (customized for you).</li>
+			<li>Ensure all information matches. Don't lose this information. Double check your work. Don't be dumb.</li>
+		</ol>
+	</div>
+</article>

@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>MyXimBlockWallet.org</title>
+	<link rel="icon" href="/favicon.ico">
+	<link rel="shortcut icon" href="/ximblock-favicon.svg">
+	<link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+	<link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+	<section class="bg-gradient header-branding">
+		<section class="container">
+			<a class="brand" href="/" aria-label="Go to homepage">
+				<img src="/images/MyXimBlockWallet.png" width="73" height="54" alt="MyXimBlockWallet"> MY XIM WALLET
+			</a>
+			<ul class="nav navbar-nav" style="padding-left: 20px;padding-top:10px">
+				<li>
+					<a asp-area="" asp-controller="Home" asp-action="Index"><span id="main-page-title">Unlock Wallet</span></a>
+				</li>
+				<li>
+					<a asp-area="" asp-controller="Home" asp-action="Address"><span class="skip-when-small">Check </span>Address</a>
+				</li>
+				<li>
+					<a asp-area="" asp-controller="Home" asp-action="Transaction"><span class="skip-when-small">Check </span>Transaction</a>
+				</li>
+				<li>
+					<a asp-area="" asp-controller="Home" asp-action="About">Help</a>
+				</li>
+			</ul>
+			<div class="skip-when-medium skip-when-small tagline" style="float:right">
+				<div title="Data from CoinMarketCap.com">1000 XIM = @ViewData["XimBlock1kPrices"]</div>
+				<div title="Data from CoinMarketCap.com">1 XIM = @ViewData["XimBlockPrices"]</div>
+				<div title="Data from CoinMarketCap.com">1 XIM = @ViewData["BtcRate"] BTC</div>
+			</div>
+		</section>
+	</section>
+	<div class="container body-content">
+		<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+						asp-fallback-src="~/lib/jquery/dist/jquery.js"
+						asp-fallback-test="window.jQuery"
+						crossorigin="anonymous"
+						integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+		</script>
+		<br />
+		@RenderBody()
+	</div>
+	<footer>
+		<div class="container">
+			<p>
+				&copy; 2018 MyXimBlockWallet, idea based on <a href="//MyEtherWallet.com">MyEtherWallet.com</a>, created by <a href="https://ximblock.io">XimBlock.io</a> and supported by the official <a href="https://ximblock.io/">XimBlock</a> Cryptocurrency 💎
+			</p>
+			<p>
+				MyXimBlockWallet.org does not hold your keys for you. We cannot access accounts, recover keys, nor reset passwords. Protect your keys!
+				<a href="/About" role="link" tabindex="0" data-toggle="modal" data-target="#disclaimerModal">You are responsible for your security.</a>
+			</p>
+			<p>
+				<a href="https://github.com/XimBlockProject/Wallet-Web" target='_blank' rel='noopener noreferrer'><icon aria-hidden="true">📄</icon> Open Source Code</a>
+				<icon aria-hidden="true" style="margin-left: 20px">❔</icon> Need Help? <a href='mailto:alonewolf2ksk@gmail.com'>Contact support</a>
+				<icon aria-hidden="true" style="margin-left: 20px">💝</icon> Donations are always appreciated! XIM: <span class="mono wrap">XXWTQVbhLzSFogMfgTSApP7bkvy2DebL7F</span>
+			</p>
+		</div>
+	</footer>
+	@RenderSection("scripts", required: false)
+</body>
+</html>
