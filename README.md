@@ -1,5 +1,5 @@
 # MyXimBlockWallet
-Web wallet for the ColossusXT cryptocurrency (XIM) 
+Web wallet for the XimBlock cryptocurrency (XIM) 
 
 This project is based on MyEtherWallet and MyDashWallet, it is open-source, free to use and development was funded by XIM team :)
 
